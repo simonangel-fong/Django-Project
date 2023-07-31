@@ -1,0 +1,12 @@
+table {
+  border: 1px solid lightgray;
+}
+
+th,
+td {
+  min-width: 200px;
+}
+
+h1 {
+  color: red;
+}

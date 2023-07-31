@@ -12,3 +12,4 @@ Project for Udemy course
   - [x] Template: index.html
   - [x] superuser
   - [x] admin link
+- [x] Static Files
