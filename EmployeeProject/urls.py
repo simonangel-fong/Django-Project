@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from EmpApp import views
 
 urlpatterns = [
+    path("", view=views.index, name="index"),
+    path("success/<slug:msg>", view=views.success, name="success"),
     path('admin/', admin.site.urls),
-    path('', include("EmpApp.urls"))
+    path('employee/', include("EmpApp.urls"))
 ]
