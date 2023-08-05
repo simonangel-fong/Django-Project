@@ -9,7 +9,7 @@
         {{ field.label_tag }} {{ field }} {{ field.errors }}
       </div>
       {% endfor %}
-      <a class="btn btn-secondary" href="{% url 'emp_list' %}">Cancel</a>
+      <a class="btn btn-secondary" href="{% url 'EmpApp:emp_list' %}">Cancel</a>
       <button class="btn btn-primary" type="submit">Submit</button>
     </div>
   </form>

@@ -22,5 +22,6 @@ urlpatterns = [
     path("", view=views.index, name="index"),
     path("success/<slug:msg>", view=views.success, name="success"),
     path('admin/', admin.site.urls),
-    path('employee/', include("EmpApp.urls"))
+    path('employee/', include("EmpApp.urls",namespace="employee")),
+    path('department/', include("EmpApp.urls",namespace="department")),
 ]

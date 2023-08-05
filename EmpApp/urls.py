@@ -1,7 +1,10 @@
 from django.urls import path
 from EmpApp import views
 
+app_name = "EmpApp"
+
 urlpatterns = [
+    path("", view=views.emp_list, name="index"),
     path("emp/list/", view=views.emp_list, name="emp_list"),
     path("emp/add/", view=views.emp_add, name="emp_add"),
     path("emp/detail/<int:emp_id>", view=views.emp_detail, name="emp_detail"),

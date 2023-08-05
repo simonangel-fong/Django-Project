@@ -2,7 +2,7 @@
 <div class="container">
   <h1>{{main_title}}</h1>
   <div class="my-3">
-    <a class="btn btn-primary" href="{% url 'emp_add' %}">Add</a>
+    <a class="btn btn-primary" href="{% url 'EmpApp:emp_add' %}">Add</a>
   </div>
 
   {% if data %}
@@ -17,13 +17,13 @@
       {% for emp in data %}
       <tr>
         <td>
-          <a href="{% url 'emp_detail' emp.id %}"
+          <a href="{% url 'EmpApp:emp_detail' emp.id %}"
             >{{emp.first_name}} {{emp.last_name}}
           </a>
         </td>
         <td>{{emp.email}}</td>
         <td>{{emp.dept|title}}</td>
-        <td><a href="{% url 'emp_update' emp.id %}">edit</a></td>
+        <td><a href="{% url 'EmpApp:emp_update' emp.id %}">edit</a></td>
       </tr>
       {% endfor %}
     </tbody>

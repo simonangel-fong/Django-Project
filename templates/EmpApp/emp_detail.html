@@ -1,6 +1,6 @@
 {% extends "base/base.html" %} {% block content %}
 <div class="container">
-  <form action="{% url 'emp_delete' data.id %}" method="post">
+  <form action="{% url 'EmpApp:emp_delete' data.id %}" method="post">
     {% csrf_token %}
     <h2>{{main_title}}</h2>
     <p>Name</p>
@@ -10,8 +10,8 @@
     <p>Department</p>
     <address>{{data.dept|title}}</address>
     <div class="d-flex">
-        <a class="btn btn-secondary me-auto" href="{% url 'emp_list' %}">Back</a>
-        <a class="btn btn-primary" href="{% url 'emp_update' data.id %}">Update</a>
+        <a class="btn btn-secondary me-auto" href="{% url 'EmpApp:emp_list' %}">Back</a>
+        <a class="btn btn-primary" href="{% url 'EmpApp:emp_update' data.id %}">Update</a>
         <button class="btn btn-danger ms-2" type="submit">Delete</button>
     </div>
   </form>
