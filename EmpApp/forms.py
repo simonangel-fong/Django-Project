@@ -1,6 +1,7 @@
 from django import forms
-from .models import Employee, Department
+from EmpApp.models import Employee, Department, UserProfile
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User
 
 
 class EmpForm(forms.ModelForm):
@@ -60,3 +61,34 @@ class DeptForm(forms.ModelForm):
                 "max_length": _("Accept less than 64 characters."),
             },
         }
+
+
+class UserForm(forms.ModelForm):
+    class Meta():
+        model = User
+        fields = ("username", "email", "password")
+        labels = {
+            "username": _("User Name"),
+            "email": _("Email"),
+            "password": _("Password")
+        }
+        widgets = {
+            "username": forms.TextInput(attrs={
+                "max_length": 60,
+                "class": "form-control",
+            }),
+            "email": forms.EmailInput(attrs={
+                "max_length": 60,
+                "class": "form-control",
+            }),
+            "password": forms.PasswordInput(attrs={
+                "max_length": 60,
+                "class": "form-control",
+            }),
+        }
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ("portfolio_site", "profile_pic",)
