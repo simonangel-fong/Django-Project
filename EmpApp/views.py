@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from datetime import datetime
-from django.http import HttpResponse
 from .models import Employee, Department
-from .forms import EmpForm, DeptForm
+from .forms import EmpForm, DeptForm, UserProfileForm, UserForm
 from django.utils.text import slugify
+from django.contrib.auth.decorators import login_required
 
 # region project view
 
@@ -193,4 +193,41 @@ def emp_delete(request, emp_id):
         print(f"{datetime.now()} {msg}")
         return redirect("success", msg=slugify(msg))
     return redirect()
+# endregion
+
+
+# region user profile info
+
+def register(request):
+    ''' user info '''
+    userForm = UserForm()
+    profileForm = UserProfileForm()
+    if request.method == "POST":
+        userForm = UserForm(data=request.POST)
+        profileForm = UserProfileForm(data=request.POST)
+
+        if userForm.is_valid() and profileForm.is_valid():
+            newUser = userForm.save(commit=False)
+            newUser.set_password(request.POST["password"])
+            newUser.save()
+
+            new_profile = profileForm.save(commit=False)
+            new_profile.user = newUser
+            if "profile_pic" in request.FILES:
+                new_profile.profile_pic = request.FILES["profile_pic"]
+
+            new_profile.save()
+            msg = f"Create User: {newUser}"
+            print(f"{datetime.now()} {msg}")
+            return redirect("success", msg=slugify(msg))
+        else:
+            print(userForm.errors)
+    template = "register.html"
+
+    context = {
+        "userForm": userForm,
+        "profileForm": profileForm
+    }
+    return render(request, template, context)
+
 # endregion
