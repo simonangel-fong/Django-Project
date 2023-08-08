@@ -1,10 +1,23 @@
 {% extends "layout/base.html" %} {% block main %}
-<div class="container" style="max-width: 980px">
-  <h4 class="mb-3">Billing address</h4>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %} {{userForm}} {{profileForm}}
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </form>
+<div class="container p-5" style="max-width: 980px">
+  <h2 class="mb-3 text-center">{{heading}}</h2>
+  <div class="container col-6">
+    <form id="signup" method="post">
+      {% csrf_token %}
+      <div class="text-danger">{{error_message}}</div>
+      <div class="row my-3">
+        <div class="col-12">{{userForm.username.label_tag }}</div>
+        <div class="col-12">{{userForm.username}}</div>
+      </div>
+      <div class="row my-3">
+        <div class="col-12">{{userForm.password.label_tag }}</div>
+        <div class="col-12">{{userForm.password}}</div>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary my-3" type="submit">
+        Sign up
+      </button>
+    </form>
+  </div>
 </div>
 
 {% endblock %}

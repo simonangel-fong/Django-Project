@@ -18,11 +18,10 @@
         action="{% url 'web:login' %}"
         method="post"
       >
-        {% csrf_token %}
-        {% if error_message %}
-        <ul class="text-danger mt-3">
-          <li><small class="text-danger">{{error_message}}</small></li>
-        </ul>
+        {% csrf_token %} {% if error_message %}
+        <div class="mb-3">
+          <small class="text-danger">{{error_message}}</small>
+        </div>
         {% endif %}
         <div class="form-floating mb-3">
           <input
@@ -62,7 +61,7 @@
           href="{% url 'web:register' %}"
         >
           Sign up
-      </a>
+        </a>
       </form>
       {% else %}
       <p>{{user.username}}</p>

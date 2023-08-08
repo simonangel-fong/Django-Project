@@ -18,8 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from TalentPoolWeb import views
 
+from TalentPoolPro import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', view=views.home, name="home"),
     path('user/', include("TalentPoolWeb.urls", namespace="user")),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG == True:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT)
