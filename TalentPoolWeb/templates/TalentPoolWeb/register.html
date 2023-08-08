@@ -1,0 +1,10 @@
+{% extends "layout/base.html" %} {% block main %}
+<div class="container" style="max-width: 980px">
+  <h4 class="mb-3">Billing address</h4>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{userForm}} {{profileForm}}
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
