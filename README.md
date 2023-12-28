@@ -6,6 +6,20 @@ Project for Udemy course
 - admin@talentpool.com
 - admin
 
+---
+
+- Home
+
+![home](./pic/home.png)
+
+- Sign-in
+
+![sign](./pic/signin.png)
+
+![sign](./pic/signin02.png)
+
+---
+
 - Level # 4
 - [x] Reorganized Project
 - [x] Create project TalentPoolPro
@@ -32,12 +46,12 @@ Project for Udemy course
   - [x] Form
   - [x] View: list, add, delete
   - [x] Url
-  - [x] Template 
+  - [x] Template
 - [x] Employee
   - [x] Form
   - [x] View: list, add, delete
   - [x] Url
-  - [x] Template 
+  - [x] Template
 
 ---
 
